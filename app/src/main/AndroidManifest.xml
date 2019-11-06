@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ahnsafety.ex70cameratest2">
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 다른 앱에게 공개할 파일의 경로 지정 : 일종의 jdk환경변수 같은 것-->
+        <!--authorities="유일한 식별자" : 이 프로바이더의 구분할 식별자 - 같은 디바이스 안에 같은 이름이 있으면 안됨. 그래서 패키지명 사용을 권장함-->
+        <!--android:name="androidx.core.content.FileProvider" : 안드로이에서 미리 만들어놓은 FileProvider클래스 사용 -->
+        <!--grantUriPermissions="true" 이 경로에 대해 임시 퍼미션 허가-->
+        <!--android:exported="false" :  이 앱 말고 다른 앱에서는 사용할 수 없음 : 보안정책상 true사용하면 에러남-->
+        <provider
+            android:authorities="com.ahnsafety.ex70cameratest2"
+            android:name="androidx.core.content.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+
+            <!-- 프로바이더가 공개할 파일의 경로(path)들 지정 : xml에 경로들 작성 -->
+            <!-- android:name="android.support.FILE_PROVIDER_PATHS" : 정해진 meta-data의 name값 -->
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/paths"/>
+
+        </provider>
+
+    </application>
+
+</manifest>

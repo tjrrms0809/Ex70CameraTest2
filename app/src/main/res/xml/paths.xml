@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- getChacheDir() 내부저장소 chaches 경로-->
+    <files-path
+        name="files"
+        path="."/>
+
+    <!--getFileDir() 내부저장소 files 경로-->
+    <cache-path
+        name="cache"
+        path="."/>
+
+    <!--Environment.getExternalStorageDirectory()  외부저장소의 공용영역 -->
+    <external-path
+        name="external"
+        path="."/>
+
+    <!--getExternalFilesDir()  외부저장소의 앱 고유영역 -->
+    <external-files-path
+        name="external_files"
+        path="."/>
+
+    <!--getExternalCacheDir()  외부저장소의 앱 고유영역의 캐시영역 -->
+    <external-cache-path
+        name="external_cache"
+        path="."/>
+
+</paths>
